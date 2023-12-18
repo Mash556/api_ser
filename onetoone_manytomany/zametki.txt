@@ -1,0 +1,20 @@
+# from manytomany.models import User, Application
+
+1 Создание новых объектов модели.
+user = User.objects.create(name = 'Elza', email = 'user@gmail.com')
+user.save()
+
+2 Получение всех объектов модели.
+User.objects.all()
+
+3 Обновление существующих объектов.
+    если хотите обновить несколько объектов
+User.objects.filter(pk=1).update(name='Meerim', email='meerim@gmail.com')
+    обращение к атрибуту если хотите обновить 1 объект
+user.name = 'Nik'
+user.save()
+
+
+application = Application.objects.create(reviews=350000)
+application.user.set([user])
+application.save()
